@@ -24,13 +24,13 @@ document.querySelector("#blow-up button").addEventListener('click', function() {
     var circleHeight = circleStyling.height.slice(0, -2)
     var newHeight = parseInt(circleHeight)
     var newWidth = parseInt(circleWidth)
-      var widthx2 = newWidth * 2
-      circle.style.width = widthx2 + "px"
-      circle.style.height = widthx2 + "px"
-      if(widthx2 > 320){
-         circle.style.width = 40 + "px"
-         circle.style.height = 40 + "px"
-      }
+    var widthx2 = newWidth * 2
+    circle.style.width = widthx2 + "px"
+    circle.style.height = widthx2 + "px"
+    if (widthx2 > 320) {
+        circle.style.width = 40 + "px"
+        circle.style.height = 40 + "px"
+    }
 })
 
 document.querySelector("#remove button").addEventListener('click', function() {
@@ -71,35 +71,13 @@ document.querySelector("#pig-latin button").addEventListener('click', function()
 })
 
 document.querySelector("#cycle-image button").addEventListener('click', function() {
-
-    var imgEl = document.querySelector("#city-img");
-    console.log(imgEl);
-    var splitSrcStr = imgEl.src.split("/")
-    console.log(splitSrcStr);
-    var strToModify = splitSrcStr.pop()
-    console.log(strToModify);
-    var cityPhotoXString = strToModify.split('.')[0];
-    console.log(cityPhotoXString);
-    var cityPhotoXArray = cityPhotoXString.split('-')
-    console.log(cityPhotoXArray);
-    var numInString = cityPhotoXArray.pop()
-    console.log(numInString);
-    var imgNum = parseInt(numInString)
-    console.log(imgNum);
-    var nextImgNum = imgNum + 1;
-    console.log(nextImgNum);
-
-    imgEl.src = './images'
-
-    if (nextImgNum <= 10) {
-        var imgNumForDOM = nextImgNum
-    } else {
-        var imgNumForDOM = 1
+    var getImg = document.querySelector('#city-img')
+    var split = getImg.outerHTML.split('');
+    var img = split[66]
+    var newNum = parseInt(img)
+    newNum = newNum + 1
+    if (newNum >= 10) {
+        newNum = 1
     }
-
-    // var images = ['http://lorempixel.com/400/200/city/1', 'http://lorempixel.com/400/200/city/2', 'http://lorempixel.com/400/200/city/3', 'http://lorempixel.com/400/200/city/4'];
-    // for (var i = 0; i <= images.length; i++) {
-    //     console.log("hey", images[i]);
-    //     document.querySelector('#city-img').src = images[i]
-    // }
+    getImg.src = "./images/city-photo-" + newNum + ".jpg"
 })
